@@ -15,4 +15,8 @@ spec:
         namespace: default
       interval: 1m
   values:
-    replicaCount: 1
+    JCasC:
+      configScripts:
+        welcome-message: |
+          jenkins:
+            systemMessage: Welcome to our [Packt] GitOps Simplified.

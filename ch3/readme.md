@@ -14,3 +14,17 @@ flux bootstrap git \
   --namespace=flux-system \
   --components-extra image-reflector-controller,image-automation-controller
 ```
+
+## How to find Jenkins User and Password
+* username: `admin`
+* password
+
+```bash
+kubectl exec --namespace default -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
+```
+
+## How to setup kube-proxy for accessing jenkins?
+
+```
+kubectl --namespace default port-forward svc/jenkins 8080:8080
+```
