@@ -15,8 +15,9 @@ spec:
         namespace: default
       interval: 1m
   values:
-    JCasC:
-      configScripts:
-        welcome-message: |
-          jenkins:
-            systemMessage: Welcome to our [Packt] GitOps Simplified.
+    controller:
+      JCasC:
+        configScripts:
+          welcome-message: |
+            jenkins:
+              systemMessage: Welcome to our [Packt] GitOps Simplified.
