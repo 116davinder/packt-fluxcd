@@ -38,9 +38,9 @@ podTemplate(
       }
     }
     container('kaniko') {
-      def imageName = "registry.localhost:5000/python-demo:latest"
+      def imageName = "registry.localhost:5000/python-demo:"
       stage('build') {
-        sh("/kaniko/executor --context ch3/apps/python-demo/src/ --destination ${imageName}")
+        sh("/kaniko/executor --context ch3/apps/python-demo/src/ --destination ${imageName}${GIT_COMMIT} --destination ${imageName}${env.BRANCH_NAME}")
       }
     }
   }
