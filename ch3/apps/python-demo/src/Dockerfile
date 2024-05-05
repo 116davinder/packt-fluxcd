@@ -4,12 +4,12 @@ RUN mkdir -p /app
 
 WORKDIR /app 
 
-ADD requirements.txt /app 
+COPY requirements.txt /app 
 
 RUN pip install -r requirements.txt 
 
 EXPOSE 5000 
 
-ADD . .
+COPY . .
 
 CMD ["python", "app.py"]
