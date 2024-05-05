@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-demo
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: python-demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: python-demo
+    spec:
+      containers:
+      - name: python-demo
+        image: registry.localhost:12345/python-demo:jenkins-python-demo-0
+        ports:
+        - containerPort: 5000
+          name: http
