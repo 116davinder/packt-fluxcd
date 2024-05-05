@@ -1,5 +1,5 @@
 podTemplate(
-  label: "python3-builder",
+  label: "python-builder",
   // Keep docker container started for 10 minutes before deleting it
   idleMinutes: 10,
   // Affect service account to update develop
