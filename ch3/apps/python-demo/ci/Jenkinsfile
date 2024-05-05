@@ -1,5 +1,5 @@
 podTemplate(
-  label: "python-builder",
+  label: "python3-builder",
   // Keep docker container started for 10 minutes before deleting it
   idleMinutes: 10,
   // Affect service account to update develop
@@ -18,7 +18,7 @@ podTemplate(
     ),
     containerTemplate(
       name: 'kaniko',
-      image: 'gcr.io/kaniko-project/executor:v1.22.0-slim',
+      image: 'gcr.io/kaniko-project/executor:v1.22.0-debug',
       ttyEnabled: true,
       command: 'cat'
     ),
