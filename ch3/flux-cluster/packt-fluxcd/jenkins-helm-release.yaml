@@ -16,6 +16,8 @@ spec:
       interval: 1m
   values:
     controller:
+      additionalPlugins:
+        - pipeline-stage-view:2.34
       JCasC:
         configScripts:
           welcome-message: |
