@@ -15,6 +15,10 @@ flux bootstrap git \
   --components-extra image-reflector-controller,image-automation-controller
 ```
 
+## How to install Jenkins?
+Jenkins will be autoinstalled from `ch3/flux-cluster/packt-fluxcd/jenkins-*.yaml` files once 
+fluxCD is bootstrapped.
+
 ## How to find Jenkins User and Password
 * username: `admin`
 * password

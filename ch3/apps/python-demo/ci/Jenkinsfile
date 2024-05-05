@@ -1,7 +1,7 @@
 podTemplate(
   label: "python-builder",
   // Keep docker container started for 10 minutes before deleting it
-  // idleMinutes: 10,
+  idleMinutes: 10,
   // Affect service account to update develop
   serviceAccount: 'default',
   // Uncomment to use secret to pull secret image
@@ -10,7 +10,7 @@ podTemplate(
   containers: [
     containerTemplate(
       name: 'python',
-      image: 'python:3',
+      image: 'python:3.12-alpine3.19',
       ttyEnabled: true,
       command: 'cat',
       resourceRequestMemory: "200M",
@@ -18,7 +18,7 @@ podTemplate(
     ),
     containerTemplate(
       name: 'kaniko',
-      image: 'gcr.io/kaniko-project/executor:v1.8.0-debug',
+      image: 'gcr.io/kaniko-project/executor:v1.22.0-slim',
       ttyEnabled: true,
       command: 'cat'
     ),
@@ -39,16 +39,9 @@ podTemplate(
       }
     }
     container('kaniko') {
-      def imageName = "yannig/flask-healthcheck:latest"
-      stage('login') {
-        sh('''
-          mkdir -p /kaniko/.docker
-          cp /home/jenkins/docker/.dockerconfigjson /kaniko/.docker/config.json
-          sed -i 's|docker.io|https://index.docker.io/v1/|g' /kaniko/.docker/config.json
-          ''')
-      }
+      def imageName = "registry.localhost:12345/python-demo:latest"
       stage('build') {
-        sh("/kaniko/executor --context flask-healthcheck --destination docker.io/${imageName}")
+        sh("/kaniko/executor --context ch3/apps/python-demo/src/ --destination ${imageName}")
       }
     }
   }
