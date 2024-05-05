@@ -30,11 +30,12 @@ podTemplate(
     }
     container('python') {
       stage("prereq") {
-        sh("pip install -r flask-healthcheck/requirements.txt")
+        sh("ls -lh .")
+        sh("pip install -r ch3/apps/python-demo/src/requirements.txt")
         sh("pip install pylint")
       }
       stage('linter') {
-        sh("pylint flask-healthcheck --exit-zero")
+        sh("pylint ch3/apps/python-demo/src/ --exit-zero")
       }
     }
     container('kaniko') {
