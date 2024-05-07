@@ -30,7 +30,7 @@ metadata:
 spec:
   interval: 2m
   sourceRef:
-    kind: GitRepository # the only valid value, but good practice to be explicit here
+    kind: GitRepository
     name: flux-system
     namespace: flux-system
   git:
@@ -42,8 +42,6 @@ spec:
     checkout:
       ref:
         branch: main
-    # push:
-    #   branch: auto
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
