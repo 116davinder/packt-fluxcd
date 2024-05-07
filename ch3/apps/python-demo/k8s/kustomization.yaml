@@ -5,6 +5,6 @@ resources:
 namePrefix: ch3-
 
 images:
-  - name: registry.localhost:5000/python-demo:1.0.1
+  - name: registry.localhost:5000/python-demo:1.0.0
     newName: registry.localhost:12345/python-demo
     newTag: "1.0.1"
