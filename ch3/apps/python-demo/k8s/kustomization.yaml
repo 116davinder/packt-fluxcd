@@ -1,10 +1,8 @@
 resources:
   - deployment.yaml
   - service.yaml
-
 namePrefix: ch3-
-
 images:
   - name: registry.localhost:5000/python-demo:1.0.0
-    newName: registry.localhost:12345/python-demo # {"$imagepolicy": "default:python-demo:name"}
-    newTag: "1.0.1" # {"$imagepolicy": "default:python-demo:tag"}
+    newName: registry.localhost:5000/python-demo # {"$imagepolicy": "default:python-demo:name"}
+    newTag: "1.0.2" # {"$imagepolicy": "default:python-demo:tag"}
