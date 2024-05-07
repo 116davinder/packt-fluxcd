@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: python-demo
-        image: registry.localhost:12345/python-demo:jenkins-python-demo-0
+        image: registry.localhost:12345/python-demo:1.0.1
         ports:
         - containerPort: 5000
           name: http
