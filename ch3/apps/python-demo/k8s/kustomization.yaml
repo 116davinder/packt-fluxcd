@@ -5,4 +5,4 @@ namePrefix: ch3-
 images:
   - name: registry.localhost:5000/python-demo:1.0.0
     newName: registry.localhost:5000/python-demo # {"$imagepolicy": "default:python-demo:name"}
-    newTag: "1.0.2" # {"$imagepolicy": "default:python-demo:tag"}
+    newTag: "1.0.3" # {"$imagepolicy": "default:python-demo:tag"}
