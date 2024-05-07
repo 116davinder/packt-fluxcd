@@ -21,24 +21,29 @@ spec:
   policy:
     semver:
       range: 1.0.x
-# ---
-# apiVersion: image.toolkit.fluxcd.io/v1beta1
-# kind: ImageUpdateAutomation
-# metadata:
-#   name: python-demo
-#   namespace: default
-# spec:
-#   interval: 5m
-#   sourceRef:
-#     kind: GitRepository # the only valid value, but good practice to be explicit here
-#     name: flux-system
-#     namespace: flux-system
-#   git:
-#     commit:
-#       author:
-#         name: Fluxbot
-#         email: flux@packt.com
-#       messageTemplate: "{{range .Updated.Images}}{{println .}}{{end}}"
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: python-demo
+  namespace: default
+spec:
+  interval: 2m
+  sourceRef:
+    kind: GitRepository # the only valid value, but good practice to be explicit here
+    name: flux-system
+    namespace: flux-system
+  git:
+    commit:
+      author:
+        name: Fluxbot
+        email: flux@packt.com
+      messageTemplate: "{{range .Updated.Images}}{{println .}}{{end}}"
+    checkout:
+      ref:
+        branch: main
+    # push:
+    #   branch: auto
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
