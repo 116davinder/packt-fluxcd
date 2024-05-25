@@ -15,8 +15,13 @@ flux bootstrap git \
   --components-extra image-reflector-controller,image-automation-controller
 ```
 
-## How to setup kube-proxy for accessing jenkins?
-
+## How to setup kube-proxy for accessing prometheus?
+```bash
+kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus  9090:9090 
 ```
-kubectl --namespace default port-forward svc/jenkins 8080:8080
+
+## How to setup kube-proxy for accessing grafana?
+
+```bash
+kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80
 ```
