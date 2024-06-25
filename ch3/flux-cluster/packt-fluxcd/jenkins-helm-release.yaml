@@ -18,6 +18,7 @@ spec:
     controller:
       additionalPlugins:
         - pipeline-stage-view:2.34
+        - pipeline-graph-view:304.va_f2a_16b_e4964
       JCasC:
         configScripts:
           welcome-message: |

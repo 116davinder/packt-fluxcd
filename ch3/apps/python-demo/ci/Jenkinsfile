@@ -35,7 +35,7 @@ podTemplate(
     }
     container('kaniko') {
       def imageName = "registry.localhost:5000/python-demo:1.0."
-      stage('build') {
+      stage('build and publish') {
         sh("/kaniko/executor --context ch3/apps/python-demo/src/ --destination ${imageName}${BUILD_ID}")
       }
     }
